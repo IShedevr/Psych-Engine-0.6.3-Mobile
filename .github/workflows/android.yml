@@ -29,8 +29,8 @@ jobs:
           haxelib install hxcpp
           haxelib install lime 8.0.0
           haxelib install openfl
-          haxelib install fixel 5.2.2
-          haxelib set fixel 5.2.2
+          haxelib install flixel 5.2.2
+          haxelib set flixel 5.2.2
           haxelib run lime setup flixel
           haxelib install flixel-tools
           haxelib install flixel-ui
