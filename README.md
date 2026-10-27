@@ -20,6 +20,7 @@ otherwise, you can delete the "VIDEOS_ALLOWED" Line on Project.xml
 
 ## Mobile Credits:
 * Brenninho - Porter
+* IShedevr - Porter (the guy who got it done)
 
 ## Credits:
 * Shadow Mario - Programmer
