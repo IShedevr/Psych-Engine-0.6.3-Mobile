@@ -78,11 +78,17 @@ jobs:
           echo "=== Search for FlxTypedGroup ==="
           find ~/haxelib . -name 'FlxTypedGroup.hx' 2>/dev/null || true
           
+      
       - name: Check project location
         run: |
+          echo "=== Current directory ==="
           pwd
-          ls -la
-          find . -name 'Project.xml'
+          echo "=== Files in workspace ==="
+          ls -la "$GITHUB_WORKSPACE"
+          echo "=== Find project file ==="
+          find "$GITHUB_WORKSPACE" -iname 'project.xml' -o -iname 'project.hxml'
+          echo "=== Git status ==="
+          git status --short
 
       - name: Compile
         run: haxelib run lime build Project.xml android
