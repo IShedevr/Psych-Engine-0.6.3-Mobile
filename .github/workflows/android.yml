@@ -40,7 +40,8 @@ jobs:
           haxelib set flixel-addons 3.0.2
           haxelib install tjson
           haxelib install hxjsonast
-          haxelib install hxCodec
+          haxelib install hxCodec 2.5.1
+          haxelib set hxCodec 2.5.1
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
