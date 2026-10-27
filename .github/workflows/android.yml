@@ -12,10 +12,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/setup-java@v4
+      - name: Checkout repository
+        uses: actions/checkout@v5
         with:
-          distribution: 'temurin'
-          java-version: '17'
+          repository: IShedevr/Psych-Engine-0.6.3-Mobile
+          ref: main
+          clean: true
+          fetch-depth: 1
+
+      - name: Verify downloaded files
+        run: |
+          pwd
+          ls -la
+          git status --short
+          find . -maxdepth 3 -iname 'Project.xml'
 
       - uses: krdlab/setup-haxe@master
         with:
