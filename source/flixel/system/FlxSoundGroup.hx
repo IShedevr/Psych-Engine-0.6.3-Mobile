@@ -1,6 +1,6 @@
 package flixel.system;
 
-import flixel.group.FlxTypedGroup;
+import flixel.group.FlxGroup.FlxTypedGroup;
 
 class FlxSoundGroup extends FlxTypedGroup<FlxSound>
 {
