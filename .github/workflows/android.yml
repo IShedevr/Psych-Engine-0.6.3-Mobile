@@ -44,7 +44,6 @@ jobs:
           haxelib install hxjsonast
           haxelib install hxCodec 2.5.1
           haxelib set hxCodec 2.5.1
-          haxelib remove linc_luajit
           haxelib git linc_luajit https://github.com/jigsaw-4277821/linc_luajit.git
           haxelib install hscript
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
