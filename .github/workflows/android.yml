@@ -75,6 +75,12 @@ jobs:
           haxelib path flixel
           echo "=== Search for FlxTypedGroup ==="
           find ~/haxelib . -name 'FlxTypedGroup.hx' 2>/dev/null || true
+          
+      - name: Check project location
+        run: |
+          pwd
+          ls -la
+          find . -name 'Project.xml'
 
       - name: Compile
         run: haxelib run lime build Project.xml android
