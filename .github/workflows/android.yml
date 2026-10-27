@@ -41,6 +41,7 @@ jobs:
           haxelib git linc_luajit https://github.com/nebulazorua/linc_luajit
           haxelib install hscript
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
+          haxelib path flixel
           haxelib list
 
       - name: Setup Android NDK
