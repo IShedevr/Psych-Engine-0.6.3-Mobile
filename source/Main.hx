@@ -89,7 +89,7 @@ class Main extends Sprite
 		}
 	
 		ClientPrefs.loadDefaultKeys();
-		addChild(new FlxGame(gameWidth, gameHeight, initialState, zoom, Std.int(framerate), Std.int(framerate), skipSplash, startFullscreen));
+		addChild(new FlxGame(gameWidth, gameHeight, initialState, Std.int(framerate), Std.int(framerate), skipSplash, startFullscreen));
 
 		#if !mobile
 		fpsVar = new FPS(10, 3, 0xFFFFFF);
