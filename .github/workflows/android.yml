@@ -100,7 +100,16 @@ jobs:
 
       - name: Compile
         run: haxelib run lime build Project.xml android
-        
+      
+      - name: Find and Publish APK
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: androidBuild
+          path: |
+            **/*.apk
+          if-no-files-found: warn
+
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
