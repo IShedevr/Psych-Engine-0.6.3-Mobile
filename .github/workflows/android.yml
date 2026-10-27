@@ -29,7 +29,7 @@ jobs:
           haxelib install hxcpp
           haxelib install lime 8.0.0
           haxelib install openfl
-          haxelib install fixel 5.2.2 --never install flixel
+          haxelib install fixel 5.2.2
           haxelib set fixel 5.2.2
           haxelib run lime setup flixel
           haxelib install flixel-tools
