@@ -31,6 +31,8 @@ jobs:
           haxelib install openfl
           haxelib install flixel 5.2.2
           haxelib set flixel 5.2.2
+          haxelib path flixel
+          find ~/haxelib -name FlxTypedGroup.hx
           haxelib run lime setup flixel
           haxelib install flixel-tools
           haxelib install flixel-ui
