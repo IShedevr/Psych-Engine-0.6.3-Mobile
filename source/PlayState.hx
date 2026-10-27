@@ -72,7 +72,7 @@ import sys.io.File;
 #end
 
 #if VIDEOS_ALLOWED
-import hxcodec.flixel.FlxVideo as MP4Handler;
+import vlc.MP4Handler;
 #end
 
 using StringTools;
