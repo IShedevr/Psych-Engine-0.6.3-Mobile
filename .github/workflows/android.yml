@@ -100,7 +100,37 @@ jobs:
 
       - name: Compile
         run: haxelib run lime build Project.xml android
-      
+        
+      - name: Diagnose LuaJIT in APK
+        if: always()
+        run: |
+          echo "=== APK files ==="
+          find . -type f -name '*.apk' -print
+
+          echo "=== LuaJIT libraries in workspace ==="
+          find . "$HOME/haxelib" -type f \
+            \( -iname '*luajit*.so*' -o -iname '*luajit*.a' \) \
+            2>/dev/null || true
+
+          echo "=== APK native libraries and dependencies ==="
+          mkdir -p /tmp/apk-check
+          find . -type f -name '*.apk' -print0 |
+          while IFS= read -r -d '' apk; do
+            echo "--- Checking: $apk"
+            rm -rf /tmp/apk-check/*
+            unzip -oq "$apk" -d /tmp/apk-check
+
+            find /tmp/apk-check/lib -type f -name '*.so' \
+              -print 2>/dev/null || true
+
+            find /tmp/apk-check -type f \
+              -name 'libApplicationMain.so' \
+              -exec sh -c '
+                echo "=== Dependencies: $1 ==="
+                readelf -d "$1" | grep NEEDED || true
+              ' _ {} \;
+          done
+          
       - name: Find and Publish APK
         if: always()
         uses: actions/upload-artifact@v4
