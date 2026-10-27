@@ -65,9 +65,18 @@ jobs:
           haxelib run lime config JAVA_HOME $JAVA_HOME
           haxelib run lime config
 
+      - name: Check Flixel installation
+        run: |
+          echo "=== HaxeFlixel version ==="
+          haxelib list
+          echo "=== HaxeFlixel path ==="
+          haxelib path flixel
+          echo "=== Search for FlxTypedGroup ==="
+          find ~/haxelib . -name 'FlxTypedGroup.hx' 2>/dev/null || true
+
       - name: Compile
         run: haxelib run lime build Project.xml android
-
+        
       - name: Publish Artifact
         uses: actions/upload-artifact@v4
         with:
