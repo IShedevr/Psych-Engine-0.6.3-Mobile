@@ -43,6 +43,7 @@ jobs:
           haxelib git hscript-ex https://github.com/ianharrigan/hscript-ex
           haxelib path flixel
           haxelib list
+          find ~/haxelib -path '*/flixel/group/FlxTypedGroup.hx'
 
       - name: Setup Android NDK
         id: setup-ndk
