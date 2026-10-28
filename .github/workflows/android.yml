@@ -86,7 +86,6 @@ jobs:
           echo "=== Search for FlxTypedGroup ==="
           find ~/haxelib . -name 'FlxTypedGroup.hx' 2>/dev/null || true
           
-      
       - name: Check project location
         run: |
           echo "=== Current directory ==="
