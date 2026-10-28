@@ -114,11 +114,6 @@ jobs:
               readelf -d "$1" | grep -E "SONAME|NEEDED" || true
             ' _ {} \;
             
-      - name: Check packaged LuaJIT
-        if: always()
-        run: |
-          find export -type f \( -name '*luajit*' -o -name 'libApplicationMain.so' \) -print 2>/dev/null
-             
       - name: Diagnose LuaJIT in APK
         if: always()
         run: |
