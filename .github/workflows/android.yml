@@ -101,6 +101,19 @@ jobs:
       - name: Compile
         run: haxelib run lime build Project.xml android
         
+      - name: Check LuaJIT ARM64 library
+        if: always()
+        run: |
+          echo "=== Find LuaJIT libraries ==="
+          find "$HOME/haxelib" -type f -iname '*luajit*.so*' 2>/dev/null || true
+          echo "=== ARM64 ELF info ==="
+          find "$HOME/haxelib" -type f -name 'libluajit-64.so' \
+            -exec sh -c '
+              file "$1"
+              readelf -h "$1" | grep -E "Class:|Machine:"
+              readelf -d "$1" | grep -E "SONAME|NEEDED" || true
+            ' _ {} \;
+            
       - name: Diagnose LuaJIT in APK
         if: always()
         run: |
